@@ -11,10 +11,10 @@
         <div class="col-md-12 blog-post">
           <div *ngFor="let topico of topicos">
             <div class='post-title'>
-              <a href="http://localhost:52500/topico/id:{{topico.id}}"><h1>{{topico.titulo}}</h1></a>
+              <a href="http://localhost:52500/topico/{{topico.id}}"><h1>{{topico.titulo}}</h1></a>
 
 
-              <!--<a [routerLink]="['/',topico']"[queryParams]="{id: {{topico.id}}}"><h1>{{topico.titulo}}</h1></a>-->
+              <!--<a [routerLink]="['/',topico']"[queryParams]="{id: topico.id}"><h1>{{topico.titulo}}</h1></a>-->
 
             </div>
             <div class='post-info'>

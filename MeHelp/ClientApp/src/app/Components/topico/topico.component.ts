@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { ITopico } from '../../Model/topico';
 
 
 @Component({
@@ -8,10 +9,18 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './topico.component.html'
 })
 export class TopicoComponent implements OnInit {
-  public topico: Topico;
+  public topico: ITopico;
   idTopico;
   constructor(private route: ActivatedRoute, http: HttpClient, @Inject('BASE_URL') baseUrl: string,) {
+    this.route.params.subscribe(res =>
+      http.get<ITopico>(baseUrl + 'api/TopicoAPI/TopicoSelecionadoJson?idtopico=' + res.idtopico).subscribe(result => {
+          this.topico = result;
+
+        },
+        error => console.error(error))
+    );
   }
+
 
   ngOnInit() {
 
@@ -21,13 +30,4 @@ export class TopicoComponent implements OnInit {
 
 
 
-interface Topico {
-  Id: number;
-  // usuario: Usuario;
-  // Tema Tema;
-  // TopicoFilho:Topico
-  dataCria: Date;
-  Titulo: string;
-  Descricao: string;
 
-}

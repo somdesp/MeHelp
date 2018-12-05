@@ -26,6 +26,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Model\anexos.ts" />
+    <None Remove="ClientApp\src\app\Model\topico.ts" />
+    <None Remove="ClientApp\src\app\Model\usuario.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\content\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\content\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\content\fonts\glyphicons-halflings-regular.woff2" />
@@ -52,6 +58,18 @@
   <ItemGroup>
     <ProjectReference Include="..\MeHelp.BLL\MeHelp.BLL.csproj" />
     <ProjectReference Include="..\MeHelp.Model\MeHelp.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\Model\anexos.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Model\topico.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Model\usuario.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ClientApp\src\app\Model\anexos.js">
+      <DependentUpon>anexos.ts</DependentUpon>
+    </None>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

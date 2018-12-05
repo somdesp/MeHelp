@@ -1,0 +1,49 @@
+<div class="col-md-9">
+  <div class="col-md-12 page-body">
+    <div class="row">
+      <div class="col-md-12 content-page">
+        <div class="col-md-12 blog-post">
+
+
+          <div class="well well-sm" style="background-color: #d7ffef">
+            <div class="post-title">
+              <h1>{{topico.titulo}}</h1>
+            </div>
+            <div class="media">
+              <div class="media-left">
+                <img src="http://localhost:52500/Upload/{{topico.usuario.uploadArquivo.caminho}}" class="media-object" style="width: 60px">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><a href="#" target="_blank"> {{topico.usuario.nome}} </a><small>{{topico.dataCria}}</small></h4>
+
+                <p>{{topico.descricao}}</p>
+                <div ng-if="(topico.usuario.Id!==usuario.Id)">
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+          <div *ngFor="let topicos of topico.resposta">
+            <div class="well well-sm">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading "><a href="#" target="_blank">{{topicos.usuario.nome}} </a><small> {{topicos.dataCria}}</small></h4>
+                  <p>{{topicos.descricao}}</p>
+
+                </div>
+
+                <div class="media-right">
+                  <img src="http://localhost:52500/Upload/{{topicos.usuario.uploadArquivo.caminho}}" class="media-object" style="width:60px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -5,13 +5,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { TemplateComponent } from './template/template.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { TopicoComponent } from './topico/topico.component';
+import { TemplateComponent } from './Components/template/template.component';
+import { NavMenuComponent } from './Components/nav-menu/nav-menu.component';
+import { HomeComponent } from './Components/home/home.component';
+import { CounterComponent } from './Components/counter/counter.component';
+import { FetchDataComponent } from './Components/fetch-data/fetch-data.component';
+import { UsuarioComponent } from './Components/usuario/usuario.component';
+import { TopicoComponent } from './Components/topico/topico.component';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { TopicoComponent } from './topico/topico.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'usuario', component: UsuarioComponent },
-      { path: 'topico/:id', component: TopicoComponent },
+      { path: 'topico/:idtopico', component: TopicoComponent },
 
     ])
   ],
