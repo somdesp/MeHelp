@@ -12,7 +12,7 @@
           <div *ngFor="let topico of topicos">
             <div class='post-title'>
               <!--<a href="http://localhost:59683/topico/id:{{topico.id}}"><h1>{{topico.titulo}}</h1></a>-->
-              <a [routerLink]="['/topico',1158]"><h1>{{topico.titulo}}</h1></a>
+              <a [routerLink]="['/',topico']"[queryParams]="{id: {{topico.id}}}"><h1>{{topico.titulo}}</h1></a>
 
             </div>
             <div class='post-info'>
