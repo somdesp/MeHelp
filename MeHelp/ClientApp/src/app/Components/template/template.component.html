@@ -1,47 +1,75 @@
+<!-- About Me (Left Sidebar) Start -->
+<div class="col-md-3">
+  <div class="about-fixed">
 
-        <!-- About Me (Left Sidebar) Start -->
-        <div class="col-md-3">
-          <div class="about-fixed">
+    <div *ngIf="val_login">
 
-            <div class="my-pic">
-              <img src="content/images/pic/my-pic.png" alt="">
-              <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
-              <div id="menu" class="collapse">
-                <ul class="menu-link">
-                  <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/"]' (click)='collapse()'>
-                      <span class='glyphicon glyphicon-home'></span> Home
-                    </a>
-                  </li>
-                  <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/usuario"]' (click)='collapse()'>
-                      <span class='glyphicon glyphicon-education'></span> Editar Perfil
-                    </a>
-                  </li>
-                  <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                      <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+      <div class="my-pic">
 
+        <img id="imgUser" height="229" width="270">
 
-            <div class="my-detail">
-
-              <div class="white-spacing">
-                <h1>Alex Parker</h1>
-                <span>Web Developer</span>
-              </div>
-
-              <ul class="social-icon">
-                <li><a href="#" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
-              </ul>
-
-            </div>
-          </div>
+        <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
+        <div id="menu" class="collapse">
+          <ul class="menu-link">
+            <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+              <a [routerLink]='["/"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-home'></span> Home
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+              <a [routerLink]='["/usuario"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-education'></span> Editar Perfil
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+              <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Fetch data
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+
+
+      <div class="my-detail">
+        <div class="white-spacing">
+          <h1>Alex Parker</h1>
+          <span>Web Developer</span>
+        </div>
+        <ul class="social-icon">
+          <li><a href="#" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="#" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div *ngIf="! val_login">
+      <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+          <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+          <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary">Login</button>
+          <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+          <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+  </div>
+</div>

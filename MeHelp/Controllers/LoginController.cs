@@ -33,8 +33,7 @@ namespace MeHelp.Controllers
         }
 
 
-        [AllowAnonymous]
-        [HttpPost("authenticate")]
+
         public IActionResult Authenticate([FromBody]LoginViewModel userDto)
         {
             var user = _userService.Authenticate(userDto.Login, userDto.Senha);
