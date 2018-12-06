@@ -7,7 +7,6 @@ export interface ITopico {
   dataCria: Date;
   titulo: string;
   descricao: string;
-
   resposta: ITopico[]
 
 }

@@ -1,9 +1,10 @@
 ﻿using MeHelp.DAO;
 using MeHelp.Model;
+using MeHelp.Model.Model;
 
 namespace MeHelp.BLL
 {
-    public class UsuarioBLL
+    public class UsuarioBLL : IUsuario
     {
 
         UsuarioDAO daoUsuario = new UsuarioDAO();
@@ -65,6 +66,34 @@ namespace MeHelp.BLL
 
 
         #endregion
+
+        public LoginViewModel Authenticate(string username, string password)
+        {
+            LoginDAO loginDao = new LoginDAO();
+            AutorizaçoesDAO autorizaçoesDao = new AutorizaçoesDAO();
+            ArquivoDAO arquivoDao = new ArquivoDAO();
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                return null;
+            LoginViewModel model = new LoginViewModel();
+            model.Login = username;
+            model.Senha = password;
+
+            model = loginDao.Login(model);
+
+            if ((model.Permissao.Id == 4) || (model.Nome == null))
+            {
+                return null;
+            }
+            else
+            {
+                model.Permissao = autorizaçoesDao.ReturnAutPorID(model.Permissao);
+                model.UploadArquivo = arquivoDao.CarregarArquivo(model.UploadArquivo);
+                model.success = true;
+            }
+
+            return model;
+
+        }
 
 
 

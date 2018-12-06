@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
@@ -26,9 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\app.config.ts" />
     <None Remove="ClientApp\src\app\Model\anexos.ts" />
     <None Remove="ClientApp\src\app\Model\topico.ts" />
     <None Remove="ClientApp\src\app\Model\usuario.ts" />
+    <None Remove="ClientApp\src\app\Services\autenticacao.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,9 +64,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\app.config.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Model\anexos.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Model\topico.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Model\usuario.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Services\autenticacao.service.ts" />
   </ItemGroup>
 
   <ItemGroup>

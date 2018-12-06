@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using MeHelp.Model.Model;
 
 namespace MeHelp.Model
 {
@@ -34,6 +35,7 @@ namespace MeHelp.Model
 
         public Autorizaçoes Permissao { get; set; } = new Autorizaçoes();
         public Anexos UploadArquivo { get; set; } = new Anexos();
+
     }
 
     public enum Status
