@@ -18,6 +18,16 @@ export class TemplateComponent{
 
   myItem = localStorage.getItem("model");
  public val_login;
+  //constructor(private route: ActivatedRoute,
+  //  private router: Router,
+  //  private authenticationService: AuthenticationService,
+  //  private alertService: AlertService) {
+  //  if (this.myItem == null)
+  //    this.val_login = false
+  //  return this.val_login
+  //  if (this.myItem != null)
+  //    this.val_login = true
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -30,25 +40,25 @@ export class TemplateComponent{
 
   }
 
-  ngOnInit() {
-    // reset login status
-    this.authenticationService.logout();
+  //ngOnInit() {
+  //  // reset login status
+  //  this.authenticationService.logout();
 
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }
+  //  // get return url from route parameters or default to '/'
+  //  this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  //}
 
-  login() {
-    this.loading = true;
-    this.authenticationService.login(this.usuario.username, this.usuario.password)
-      .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
-          this.alertService.error('Username or password is incorrect');
-          this.loading = false;
-        });
-  }
+  //login() {
+  //  this.loading = true;
+  //  this.authenticationService.login(this.usuario.username, this.usuario.password)
+  //    .subscribe(
+  //      data => {
+  //        this.router.navigate([this.returnUrl]);
+  //      },
+  //      error => {
+  //        this.alertService.error('Username or password is incorrect');
+  //        this.loading = false;
+  //      });
+  //}
 
 }

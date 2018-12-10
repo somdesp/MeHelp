@@ -45,7 +45,7 @@ namespace MeHelp.BLL
             for (int i = 0; i < listTopicos.Count(); i++)
             {
                 listTopicos[i].usuario = bllUsuario.ConsultaUsuarioInt(listTopicos[i].usuario);
-                listTopicos[i].Resposta = ListarTopicoFilho(listTopicos[i]);
+               // listTopicos[i].Resposta = ListarTopicoFilho(listTopicos[i]);
             }
 
             return listTopicos;

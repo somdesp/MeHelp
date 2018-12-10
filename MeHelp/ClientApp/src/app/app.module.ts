@@ -13,12 +13,11 @@ import { CounterComponent } from './Components/counter/counter.component';
 import { FetchDataComponent } from './Components/fetch-data/fetch-data.component';
 import { UsuarioComponent } from './Components/usuario/usuario.component';
 import { TopicoComponent } from './Components/topico/topico.component';
-import Appconfig = require("./app.config");
-import AppConfig = Appconfig.AppConfig;
-import Alertservice = require("./Services/alert.service");
-import AlertService = Alertservice.AlertService;
-import Autenticacaoservice = require("./Services/autenticacao.service");
-import AuthenticationService = Autenticacaoservice.AuthenticationService;
+import { AppConfig } from './app.config';
+import { AlertService } from './Services/alert.service';
+import { AuthenticationService} from './Services/autenticacao.service';
+
+
 
 
 @NgModule({
