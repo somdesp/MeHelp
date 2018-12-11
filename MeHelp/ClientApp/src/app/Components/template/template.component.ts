@@ -28,10 +28,7 @@ export class TemplateComponent{
   //  if (this.myItem != null)
   //    this.val_login = true
 
-  constructor(private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService) {
+  constructor() {
     if (this.myItem == null)
       this.val_login = false
     return this.val_login
